@@ -13,10 +13,12 @@ use KeyCode::*;
 #[rustfmt::skip]
 pub fn handle_key_event(key_event: KeyEvent, state: &mut UiState, buffer: &mut KeyBuffer) -> Option<Action> {
 
-    if let KeyCode::Char(c) = key_event.code && key_event.modifiers == KeyModifiers::NONE {
-        if buffer.push_digit(c) {
-            state.set_buffer_count(buffer.get_count());
-            return None;
+    if !matches!(state.get_input_context(), InputContext::Search | InputContext::Popup(_)) {
+        if let KeyCode::Char(c) = key_event.code && key_event.modifiers == KeyModifiers::NONE {
+            if buffer.push_digit(c) {
+                state.set_buffer_count(buffer.get_count());
+                return None;
+            }
         }
     }
 
