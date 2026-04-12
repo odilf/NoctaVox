@@ -2,8 +2,11 @@
 
 ## CURRENT DEVELOPMENT CHANGES
 
+ - NoctaVox now reports to OS media controls
+ - Fixed voxio seek errors on mp3 files
  - Fixed visual bugs when searching in mimimal mode
  - Fixed inconsistent multi-select behavior
+ - Bumped ratatui-textarea to version 0.9
 
 ## Version 0.2.5
 

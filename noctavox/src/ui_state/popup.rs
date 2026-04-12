@@ -39,20 +39,16 @@ impl PopupState {
             | PopupType::Playlist(PlaylistAction::Create)
             | PopupType::Playlist(PlaylistAction::CreateWithSongs) => {
                 let placeholder = get_random_playlist_idea();
-
                 self.input.set_placeholder_text(format!(" {placeholder} "));
-                self.input.select_all();
-                self.input.cut();
+                self.input.clear();
             }
             PopupType::Settings(SettingsMode::ViewRoots) => {
-                self.input.select_all();
-                self.input.cut();
+                self.input.clear();
             }
             PopupType::Settings(SettingsMode::AddRoot) => {
                 self.input
                     .set_placeholder_text(" Enter path to directory: ");
-                self.input.select_all();
-                self.input.cut();
+                self.input.clear();
             }
 
             _ => (),
@@ -66,8 +62,7 @@ impl PopupState {
 
     fn close(&mut self) -> Pane {
         self.current = PopupType::None;
-        self.input.select_all();
-        self.input.cut();
+        self.input.clear();
 
         self.cached.clone()
     }

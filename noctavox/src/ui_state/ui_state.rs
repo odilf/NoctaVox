@@ -87,8 +87,7 @@ impl UiState {
         }
 
         self.clear_multi_select();
-        self.search.input.select_all();
-        self.search.input.cut();
+        self.search.input.clear();
         self.set_legal_songs();
     }
 

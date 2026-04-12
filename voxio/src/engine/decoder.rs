@@ -183,6 +183,9 @@ impl VoxDecoder {
 
             let decoded = match self.decoder.decode(&packet) {
                 Ok(d) => d,
+                Err(SymphError::IoError(e)) if e.kind() == io::ErrorKind::UnexpectedEof => {
+                    return Ok(None);
+                }
                 Err(SymphError::DecodeError(_)) => continue,
                 Err(SymphError::ResetRequired) => {
                     self.decoder.reset();

@@ -361,9 +361,11 @@ impl VoxWorker {
         let info = &decoder.info;
         let sample_rate = info.sample_rate;
 
-        let duration = info
-            .n_frames
-            .map(|n| n as f64 / sample_rate as f64)
+        // Use playable duration (excludes encoder delay/padding) to match
+        // what the UI reports — seeking to the displayed end triggers track end cleanly.
+        let duration = decoder
+            .playable_duration()
+            .or_else(|| info.n_frames.map(|n| n as f64 / sample_rate as f64))
             .unwrap_or(f64::MAX);
 
         if target_secs >= duration {

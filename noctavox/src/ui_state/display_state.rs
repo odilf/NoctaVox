@@ -138,8 +138,7 @@ impl UiState {
             }
             Mode::Search => {
                 self.display_state.table_sort = TableSort::Title;
-                self.search.input.select_all();
-                self.search.input.cut();
+                self.search.input.clear();
                 self.display_state.mode = Mode::Search;
                 self.display_state.pane = Pane::Search;
             }
