@@ -15,7 +15,7 @@ crossbeam = { version = "0.8.4", default-features = false, features = ["crossbea
 dirs = "6.0.0"
 fuzzy-matcher = "0.3.7"
 indexmap = "2.13.0"
-lofty = "0.23.2"
+lofty = "0.24.0"
 nohash-hasher = "0.2.0"
 rand = "0.10.0"
 ratatui = {version = "0.30.0", features = ["serde"]}
