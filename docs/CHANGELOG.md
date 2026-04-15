@@ -1,12 +1,20 @@
 # CHANGELOG
 
-## CURRENT DEVELOPMENT CHANGES
+## Version 0.2.6
 
+Voxio moved to its own repository: 
+    https://github.com/Jaxx497/Voxio
+
+New Features: 
  - NoctaVox now reports to OS media controls
+
+Bug fixes and enhancements:
  - Fixed voxio seek errors on mp3 files
  - Fixed visual bugs when searching in mimimal mode
  - Fixed inconsistent multi-select behavior
  - Several minimal mode formatting fixes
+
+Other:
  - Bumped ratatui-textarea to version 0.9
 
 ## Version 0.2.5
@@ -22,7 +30,7 @@ MINIMAL MODE BETA
  - Song titles get more space allocated in bufferline
  - Widgets now have reactive size elements
 
-- Fixed bug where numbers could not be entered into text fields
+ - Fixed bug where numbers could not be entered into text fields
 
 ## Version 0.2.4
 

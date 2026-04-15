@@ -1,4 +1,4 @@
-<h1 style="text-align: center"> NoctaVox [v0.2.5]
+<h1 style="text-align: center"> NoctaVox [v0.2.6]
 
 [![Built With Ratatui](https://ratatui.rs/built-with-ratatui/badge.svg)](https://ratatui.rs/)
 </h1>
@@ -11,13 +11,14 @@ written in Rust.
 ## Features
 
 - Gapless playback
-- Queue support
-- Multi-format audio (mp3, m4a, wav, flac, ogg, opus)
+- Multi-format audio ```mp3, m4a, wav, flac, ogg, opus```
 - Live library reloading
-- Custom themeing with hot reload
+- Custom theming with hot reload
 - Vim-like key-bindings
 - Minimal view mode
-- Optional waveform, oscilloscope, and spectrum visualizations
+- Waveform, oscilloscope, and spectrum visualizations
+- Seemless integration with system media controls
+- Queue support
 - Playlist management
 
 ## Installation
@@ -52,10 +53,10 @@ library. Access this menu anytime with the `` ` `` or `~` key.
 
 See the complete [keymap documentation](./docs/keymaps.md) for much more
 
-## Themeing
+## Theming
 
 NoctaVox supports custom themes. The most recent specification for the
-themeing engine can be found by refering to the [theme
+theming engine can be found by refering to the [theme
 specification](./docs/themes.md). 
 
 Pre-made themes can be installed using the `install-theme` script.
@@ -66,7 +67,7 @@ chmod +x ./install-themes.sh
 ./install-themes.sh
 ```
 
-**Windows**
+**Windows Powershell**
 ```powershell
 ./install-themes.ps1
 ``` 
@@ -91,27 +92,30 @@ their libraries are properly tagged.
 
 ## Voxio Backend 
 
-Ino order for NoctaVox to recognize the intended vision without compromise, a
+In order for NoctaVox to recognize the intended vision without compromise, a
 custom backend was written- Voxio. It's an extremely simple audio playback
 engine designed to play audio at the highest quality, while also supporting the
 OPUS filetype and gapless playback; features that have proven hard to come by
 in more mature projects. This backend is being actively developed to increase
-user satisfaction and reduce decoding errors. Feel free to use it in your own
-projects!
+user satisfaction and reduce decoding errors. 
+
+As of version 0.2.6, Voxio has been moved into it's own repository, feel free
+to view it here: \
+https://github.com/Jaxx497/Voxio
 
 ## Roadmap 
 
-- Implement cleaner visual design / simpler design for mimimal mode
-- Additional user config options (framerate, backend selection)
+- Implement cleaner visual design mimimal mode
+- Additional user config options (framerate, backend selection??)
 - Expanded format testing
 - Playlist import/export functionality
 
 ## Other
 
-NoctaVox is a hobby project primary written for educational purposes. This
-project seeks to demonstrate my understanding of a series of programming
+NoctaVox is a hobby project primary written primarily for educational purposes.
+This project seeks to demonstrate an understanding of a variety of programming
 fundamentals, including but not limited to multi-threading, atomics, string
 interning, database integration, de/serialization, memory management, integrity
 hashing, session persistence, OS operations, modular design, view models, state
-management, user customization, and much more. 
+management, user customization, cross-platform development and much more. 
 
