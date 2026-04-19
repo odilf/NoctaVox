@@ -107,11 +107,11 @@ fn global_commands(key: &KeyEvent, state: &UiState, mut buf_count: usize) -> Opt
             (X, Char('[')) => Some(Action::IncrementSidebarSize(-SIDEBAR_INCREMENT)),
             (X, Char(']')) => Some(Action::IncrementSidebarSize(SIDEBAR_INCREMENT)),
 
-            (S, Char('{')) => Some(Action::IncrementWFSmoothness(Incrementor::Down)),
-            (S, Char('}')) => Some(Action::IncrementWFSmoothness(Incrementor::Up)),
+            (_, Char('{')) => Some(Action::IncrementWFSmoothness(Incrementor::Down)),
+            (_, Char('}')) => Some(Action::IncrementWFSmoothness(Incrementor::Up)),
 
-            (S, Char('<')) => Some(Action::CycleTheme(Incrementor::Up)),
-            (S, Char('>')) => Some(Action::CycleTheme(Incrementor::Down)),
+            (_, Char('<')) => Some(Action::CycleTheme(Incrementor::Up)),
+            (_, Char('>')) => Some(Action::CycleTheme(Incrementor::Down)),
 
             (_, Char('f') | Char('F')) => Some(Action::ChangeMode(Mode::Fullscreen)),
             (X, Char('w')) => Some(Action::SetProgressDisplay(ProgressDisplay::Waveform)),
@@ -274,8 +274,8 @@ fn handle_fullscreen(key: &KeyEvent) -> Option<Action> {
         (X, Char('s')) | (S, Char('S')) => Action::SetProgressDisplay(ProgressDisplay::Spectrum),
         (X, Char('b')) | (S, Char('B')) => Action::SetProgressDisplay(ProgressDisplay::ProgressBar),
 
-        (S, Char('{')) => Action::IncrementWFSmoothness(Incrementor::Down),
-        (S, Char('}')) => Action::IncrementWFSmoothness(Incrementor::Up),
+        (_, Char('{')) => Action::IncrementWFSmoothness(Incrementor::Down),
+        (_, Char('}')) => Action::IncrementWFSmoothness(Incrementor::Up),
 
         _ => Action::RevertFullscreen,
     };

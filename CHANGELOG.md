@@ -1,20 +1,26 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Fixed:
+ - `<`/`>` & `{`/`}` keybinds work on all platforms
+ - `./install-themes.sh` has proper line endings
+
 ## [0.2.6] - 2026-04-15
 
-Voxio moved to its own repository: 
-    https://github.com/Jaxx497/Voxio
 
-New Features: 
+### New Features 
  - NoctaVox now reports to OS media controls
 
-Bug fixes and enhancements:
+### Fixed
  - Fixed voxio seek errors on mp3 files
  - Fixed visual bugs when searching in mimimal mode
  - Fixed inconsistent multi-select behavior
  - Several minimal mode formatting fixes
 
-Other:
+### Other
+ - Voxio moved to its own repository: 
+    https://github.com/Jaxx497/Voxio
  - Bumped ratatui-textarea to version 0.9
 
 ## [0.2.5]
