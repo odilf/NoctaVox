@@ -70,6 +70,16 @@ impl UiState {
         &self.display_state.sidebar_view
     }
 
+    pub fn get_sidebar_details(&self) -> (LibraryView, usize) {
+        let sidebar_type = self.get_sidebar_view();
+        let count = match sidebar_type {
+            LibraryView::Albums => self.albums.len(),
+            LibraryView::Playlists => self.playlists.len(),
+        };
+
+        (*sidebar_type, count)
+    }
+
     pub fn set_mode(&mut self, mode: Mode) {
         self.clear_multi_select();
         match self.display_state.mode {

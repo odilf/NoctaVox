@@ -12,7 +12,7 @@ use ratatui::{
     widgets::{Block, HighlightSpacing, List, ListItem, Padding},
 };
 
-use crate::ui_state::{LayoutStyle, LibraryView, Pane, UiState, fade_color};
+use crate::ui_state::{LayoutStyle, LibraryView, Pane, UiState};
 
 const PADDING: Padding = Padding {
     left: 3,
@@ -23,12 +23,18 @@ const PADDING: Padding = Padding {
 
 pub fn create_standard_list<'a>(
     list_items: Vec<ListItem<'a>>,
-    titles: (Line<'static>, Line<'static>),
+    sorting_title: Option<Line<'a>>,
     state: &UiState,
     area: Rect,
 ) -> List<'a> {
     let focus = matches!(&state.get_pane(), Pane::SideBar);
     let theme = state.theme_manager.get_display_theme(focus);
+
+    let (sidebar_type, count) = state.get_sidebar_details();
+
+    let title = Line::from(format!(" ⟪ {} {} ⟫ ", count, sidebar_type))
+        .left_aligned()
+        .fg(theme.accent);
 
     let keymaps = if state.get_pane() == Pane::SideBar {
         match state.display_state.sidebar_view {
@@ -53,8 +59,8 @@ pub fn create_standard_list<'a>(
             .border_type(theme.border_type)
             .border_style(theme.border)
             .bg(theme.bg)
-            .title_top(titles.0)
-            .title_top(titles.1)
+            .title_top(title)
+            .title_top(sorting_title.unwrap_or_default())
             .title_bottom(Line::from(keymaps).centered().fg(theme.text_muted))
             .padding(PADDING),
         LayoutStyle::Minimal => Block::bordered()
@@ -62,11 +68,11 @@ pub fn create_standard_list<'a>(
             .border_type(theme.border_type)
             .border_style(theme.border)
             .bg(theme.bg_global)
-            .title_top(
-                Line::from(titles.0)
-                    .fg(fade_color(theme.dark, theme.accent, 0.8))
-                    .centered(),
-            )
+            // .title_top(
+            //     Line::from(titles.0)
+            //         .fg(fade_color(theme.dark, theme.accent, 0.8))
+            //         .centered(),
+            // )
             .padding(PADDING),
     };
 

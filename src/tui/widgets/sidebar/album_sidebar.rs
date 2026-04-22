@@ -23,7 +23,7 @@ impl StatefulWidget for SideBarAlbum {
 
         let albums = &state.albums;
         let pane_sort = state.get_album_sort_string();
-        let pane_sort = format!(" 󰒿 {pane_sort:5} ");
+        let pane_sort = format!("{pane_sort: <9}");
         let album_sort = state.get_album_sort();
 
         let selected_album_idx = state.display_state.album_pos.selected();
@@ -103,12 +103,13 @@ impl StatefulWidget for SideBarAlbum {
             }
         }
 
-        let title = Line::from(format!(" ⟪ {} Albums ⟫ ", albums.len())).fg(theme.accent);
-        let sorting = Line::from(pane_sort)
-            .right_aligned()
-            .fg(theme.text_secondary);
+        let sorting_title = Some(
+            Line::from(pane_sort)
+                .right_aligned()
+                .fg(theme.text_secondary),
+        );
 
-        create_standard_list(list_items, (title, sorting), state, area).render(
+        create_standard_list(list_items, sorting_title, state, area).render(
             area,
             buf,
             &mut render_state,

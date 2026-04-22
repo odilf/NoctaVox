@@ -104,7 +104,6 @@ pub fn create_standard_table<'a>(
             .borders(theme.border_display)
             .border_type(theme.border_type)
             .border_style(theme.border)
-            .title_top(Line::from(title).centered())
             .padding(get_padding(state.get_layout(), theme.border_display))
             .bg(theme.bg_global),
     };
@@ -336,7 +335,7 @@ fn get_padding(layout: &LayoutStyle, borders: Borders) -> Padding {
         LayoutStyle::Traditional => Padding {
             left: 4,
             right: 4,
-            top: v_pad + 1,
+            top: 1,
             bottom: v_pad,
         },
         LayoutStyle::Minimal => Padding {

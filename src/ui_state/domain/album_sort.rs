@@ -8,9 +8,9 @@ pub enum AlbumSort {
 impl ToString for AlbumSort {
     fn to_string(&self) -> String {
         match self {
-            AlbumSort::Artist => "Artist".into(),
-            AlbumSort::Title => "Title".into(),
-            AlbumSort::Year => "Year".into(),
+            AlbumSort::Artist => "󰒿 Artist".into(),
+            AlbumSort::Title => "󰒿 Title".into(),
+            AlbumSort::Year => "󰒿 Year".into(),
         }
     }
 }
@@ -40,9 +40,9 @@ impl AlbumSort {
 
     pub fn from_str(s: &str) -> Self {
         match s {
-            "Artist" => AlbumSort::Artist,
-            "Title" => AlbumSort::Title,
-            "Year" => AlbumSort::Year,
+            "󰒿 Artist" => AlbumSort::Artist,
+            "󰒿 Title" => AlbumSort::Title,
+            "󰒿 Year" => AlbumSort::Year,
             _ => AlbumSort::Artist,
         }
     }

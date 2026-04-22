@@ -85,12 +85,7 @@ impl StatefulWidget for AlbumView {
                 Span::from(format!(" [{} Songs] ", album.tracklist.len())).fg(theme.text_muted),
             ]),
 
-            LayoutStyle::Minimal => Line::from_iter([
-                Span::from(format!(" {}", album_title)).fg(theme.text_secondary),
-                Span::from(format!(" {decorator} ")).fg(theme.text_muted),
-                Span::from(album.artist.to_string()).fg(theme.text_muted),
-                Span::from(" "),
-            ]),
+            LayoutStyle::Minimal => Default::default(),
         };
 
         let table = create_standard_table(rows, title, state, theme);

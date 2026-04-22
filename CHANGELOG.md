@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
+### Added: 
+ - New breadcrumb widget for minimal mode navigation
+
 ### Fixed:
+ - More general formatting fixes
  - Enhanced search engine to handle combining marks  
     - (Ex: `í` and `i` are treated the same)
  - `<`/`>` & `{`/`}` keybinds work on all platforms

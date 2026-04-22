@@ -1,8 +1,19 @@
+use std::fmt::Display;
+
 #[derive(Default, PartialEq, Eq, Clone, Copy)]
 pub enum LibraryView {
     #[default]
     Albums,
     Playlists,
+}
+
+impl Display for LibraryView {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            LibraryView::Albums => write!(f, "Albums"),
+            LibraryView::Playlists => write!(f, "Playlists"),
+        }
+    }
 }
 
 #[derive(PartialEq, Eq, Clone)]
@@ -27,7 +38,7 @@ impl PartialEq<Mode> for &Mode {
     }
 }
 
-impl std::fmt::Display for Mode {
+impl Display for Mode {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Mode::Power => write!(f, "power"),

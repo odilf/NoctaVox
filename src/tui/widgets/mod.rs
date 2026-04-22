@@ -1,3 +1,4 @@
+mod bread_crumbs;
 mod buffer_line;
 mod popup;
 mod popups;
@@ -7,6 +8,7 @@ mod sidebar;
 mod song_window;
 mod tracklist;
 
+pub use bread_crumbs::BreadCrumbs;
 pub use buffer_line::BufferLine;
 pub use popup::PopupManager;
 pub use popups::{ErrorMsg, PlaylistPopup, RootManager, ThemeManager, UserStats};

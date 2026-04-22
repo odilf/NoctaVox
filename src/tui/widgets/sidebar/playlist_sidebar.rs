@@ -56,12 +56,8 @@ impl StatefulWidget for SideBarPlaylist {
             })
             .collect();
 
-        let title = Line::from(format!(" ⟪ {} Playlists ⟫ ", playlists.len()))
-            .left_aligned()
-            .fg(theme.accent);
-
         StatefulWidget::render(
-            create_standard_list(list_items, (title, Line::default()), state, area),
+            create_standard_list(list_items, None, state, area),
             area,
             buf,
             &mut state.display_state.playlist_pos,
